@@ -24,16 +24,25 @@
 /* ********BEGININNIG OF KEYFRAMES FOR ANIMATION******** */
 @keyframes nextArrow {
   0% {
-    transform: translateX(100%);
+    transform: translateX(80%);
+    opacity: 0.2;
+  }
+  10% {
+    opacity: 1;
   }
   100% {
     transform: translateX(0);
+    opacity: 1;
   }
 }
 
 @keyframes prevArrow {
   0% {
-    transform: translateX(-100%);
+    transform: translateX(-80%);
+    opacity: 0.2;
+  }
+  10% {
+    opacity: 1;
   }
 
   100% {
@@ -44,18 +53,30 @@
 @keyframes slideUp {
   0% {
     transform: translateY(50%);
-    opacity: 0;
+    /* opacity: 0; */
   }
   100% {
     transform: translateY(0);
-    opacity: 1;
+    /* opacity: 1; */
   }
 }
 @keyframes contentUp {
   0% {
-    transform: translateY(80%);
+    transform: translateY(100%);
+    /* opacity: 0; */
+  }
+  100% {
+    transform: translateY(0);
+    /* opacity: 1; */
+  }
+}
+
+@keyframes Contents {
+  0% {
+    transform: translateY(100%);
     opacity: 0;
   }
+
   100% {
     transform: translateY(0);
     opacity: 1;
@@ -65,11 +86,11 @@
 @keyframes slide-in-left {
   0% {
     transform: translateX(100%);
-    opacity: 0;
+    /* opacity: 0; */
   }
   100% {
     transform: translateX(0);
-    opacity: 1;
+    /* opacity: 1; */
   }
 }
 
@@ -80,11 +101,19 @@
 .content_anime {
   animation: contentUp 1.6s ease-in;
 }
+
 .text_anime {
-  animation: slide-in-left 1.65s ease-in;
+  animation: slide-in-left ease-in-out;
+}
+.content {
+  animation: Contents 1.5s ease-in-out;
 }
 
-/* *********END OF KEYFRAMES FOR ANIMATION********* */
+/* *********END OF KEYFRAMES FOR ANIMATIONS********* */
+body {
+  scroll-behavior: smooth;
+}
+
 .main {
   background-color: #e5e5e5;
   overflow: hidden;
@@ -135,26 +164,27 @@
   color: #848484;
   text-decoration: none;
   text-shadow: 0.5px 1px 0.5px;
+  border-radius: 20px;
+  padding: 3px 8px 3px 8px;
+  background: rgba(92, 187, 255, 0);
+}
+.navbar a:hover {
+  transition: 0.3s ease-in-out;
+  background: rgba(92, 187, 255, 1);
+  color: black;
 }
 .contact {
   border: transparent;
   border-radius: 20px;
   padding: 3px 8px 3px 8px;
-  background-color: #5cbbff;
+  background-color: #5cbbff !important;
   color: black !important;
 }
-
-/* .navbar a:hover {
-  border: transparent;
-  border-radius: 20px;
-  padding: 3px 8px 3px 8px;
-  background-color: #5cbbff;
-  color: black !important;
-  transition: 0.3s ease-in-out;
+.contact:hover {
+  transition: 0.3s ease;
+  background-color: transparent !important;
+  color: #848484;
 }
-.navbar .contact:hover {
-  background-color: none;
-} */
 .home_body,
 .about,
 .services {
