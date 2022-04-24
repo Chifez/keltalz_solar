@@ -1,8 +1,9 @@
 "use strict";
 const slideEl = document.querySelectorAll(".slides");
+const slider = document.querySelector(".slider");
 const prevArrowsEl = document.querySelector(".left_arrow");
 const nextArrowsEl = document.querySelector(".right_arrow");
-const arrow = [prevArrowsEl, nextArrowsEl];
+const arrows = [prevArrowsEl, nextArrowsEl];
 const mainBody = document.querySelectorAll(".main_body");
 const contentBody = document.querySelectorAll(".content_body");
 const textBody = document.querySelector(".text_body");
@@ -18,27 +19,47 @@ const reveal = {
 };
 
 // SETTING UP THE IMAGE SLIDER ANIMATION
+const slideWidth = slideEl[index].clientWidth;
+
 const init = (n) => {
-  slideEl.forEach((slide) => {
-    slide.style.display = "none";
+  slideEl.forEach((slide, i) => {
+    slide.style.left = i * `${slideWidth}` + "px";
+    slide.classList.remove("active");
   });
-  slideEl[n].style.display = "flex";
+  // slider.style.display = "flex";
+  if (index <= 0) {
+    arrows[0].style.display = "none";
+  } else {
+    arrows[0].style.display = "block";
+  }
+
+  if (index >= slideEl.length - 1) {
+    arrows[1].style.display = "none";
+  } else {
+    arrows[1].style.display = "block";
+  }
+
+  // slideEl[n].classList.add("active");
+  // slideEl[n].style.left = 0;
 };
+// document.addEventListener("DOMContentLoaded",
+init(index);
 
-document.addEventListener("DOMContentLoaded", init(index));
-
-arrow.forEach((arrows) => {
-  arrows.addEventListener("click", (e) => {
-    if (e.target == arrow[0]) {
+arrows.forEach((arrow) => {
+  arrow.addEventListener("click", (e) => {
+    if (e.target == arrows[0]) {
       index <= 0 ? (index = slideEl.length - 1) : index--;
+      console.log(index);
       init(index);
-      slideEl[index].classList.remove("next");
-      slideEl[index].classList.add("prev");
-    } else if (e.target == arrow[1]) {
+      if (index == 1) {
+        slider.style.transform = `translateX(-${slideWidth}px)`;
+      } else {
+        slider.style.transform = "translateX(" + slideWidth * index + "px)";
+      }
+    } else if (e.target == arrows[1]) {
       index >= slideEl.length - 1 ? (index = 0) : index++;
       init(index);
-      slideEl[index].classList.remove("prev");
-      slideEl[index].classList.add("next");
+      slider.style.transform = "translateX(-" + slideWidth * index + "px)";
     }
   });
 });

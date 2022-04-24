@@ -22,33 +22,45 @@
 }
 
 /* ********BEGININNIG OF KEYFRAMES FOR ANIMATION******** */
-@keyframes nextArrow {
+/* @keyframes nextArrow {
   0% {
-    transform: translateX(80%);
+    transform: scale(0.5);
     opacity: 0.2;
   }
-  10% {
-    opacity: 1;
+  50% {
+    transform: scale(0.5);
+    opacity: 0.5;
+  }
+  70% {
+    transform: scale(0.7);
+    opacity: 0.7;
   }
   100% {
-    transform: translateX(0);
+    transform: scale(1);
     opacity: 1;
   }
 }
 
 @keyframes prevArrow {
   0% {
-    transform: translateX(-80%);
-    opacity: 0.2;
+    transform: scale(0.5);
+    opacity: 0.1;
   }
-  10% {
-    opacity: 1;
+  50% {
+    transform: scale(0.5);
+    opacity: 0.5;
+  }
+  70% {
+    transform: scale(0.7);
+    opacity: 0.7;
   }
 
   100% {
     transform: translateX(0);
+    transform: scale(1);
+    opacity: 1;
   }
-}
+} */
 
 @keyframes slideUp {
   0% {
@@ -115,7 +127,7 @@ body {
 }
 
 .main {
-  background-color: #e5e5e5;
+  background-color: white;
   overflow: hidden;
 }
 .home {
@@ -250,8 +262,6 @@ body {
   font-family: poppins_light;
   font-style: italic;
   font-weight: bold;
-  /* width: 80%; */
-  /* padding: 0; */
 }
 .left {
   width: 100%;
@@ -299,42 +309,51 @@ body {
 }
 
 .about {
-  overflow: hidden;
+  display: grid;
+  grid-template-rows: 1fr;
+  /* overflow: hidden; */
 }
 
 .about_img {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  grid-gap: 10px;
+  grid-template-rows: 1fr;
+  grid-gap: 5px;
 }
 
 .about_img img {
-  width: 100%;
-  height: 100%;
   object-fit: cover;
 }
 
 .about_img img:last-child {
   grid-column: 1/3;
   grid-row: 2/3;
+  width: 740px;
+  height: 420px;
   border-bottom-left-radius: 5px;
-  height: 70%;
-  object-fit: cover;
 }
 .about_img img:nth-child(1) {
   border-top-left-radius: 5px;
   grid-column: 1/2;
   grid-row: 1/2;
+  width: 350px;
+  height: 420px;
 }
 .about_img img:nth-child(2) {
   grid-column: 2/3;
   grid-row: 1/2;
+  width: 350px;
+  height: 420px;
 }
-.about_main {
-  padding-top: 20px;
+.about_main p {
+  align-content: center;
+  /* position: absolute; */
+  /* padding-top: 20px; */
   font-family: poppins_mid;
-  font-size: 0.9rem;
+  /* font-size: 1rem; */
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 42px;
 }
 
 /* **********END OF THE ABOUT US STYLING********* */
@@ -390,8 +409,9 @@ body {
   color: red;
   text-shadow: 1px 2px 1px gray;
 }
-.services_details p {
-  font-size: 0.9rem;
+.service_details p {
+  font-size: 20px;
+  line-height: 30px;
   width: 100%;
   /* height: 70%; */
   margin-top: 5px;
@@ -445,48 +465,51 @@ body {
   text-align: center;
 }
 .story {
+  overflow: hidden;
+  display: flex;
+  align-content: center;
+  justify-content: center;
   width: 70vw;
   height: 70vh;
   margin: auto;
   box-shadow: 1px 2px 5px 0px gray;
   border-radius: 5px;
-  overflow: hidden;
   background-color: #f8fcfd;
+  /* border: 2px solid red; */
+  /* position: relative; */
 }
 .slider {
-  display: flex;
-  /* border: 2px solid green; */
-  /* width: 300%; */
-  height: 90%;
+  position: relative;
+  width: 50vw;
+  height: 50vh;
+  transition: 1s cubic-bezier(0.48, 0.15, 0.18, 1);
 }
 
 .slides {
-  display: none;
+  display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
-  width: 70vw;
+  position: absolute;
+  margin-top: 30px;
+  width: 100%;
   height: 100%;
-  /* border: 2px solid blue; */
 }
 
-.next {
+/* .next {
   animation: nextArrow 1.5s ease-in-out;
 }
 
 .prev {
   animation: prevArrow 1.5s ease-in-out;
-}
-
-/* .active {
-  display: flex;
-transform: translateX(100%);
-  transition: 3s ease-in-out;
 } */
+
+.slides.active {
+  transition: all 2s ease-in-out;
+}
 
 .story img {
   position: relative;
-  width: 22%;
+  width: 25%;
   height: 50%;
   object-fit: cover;
   border-radius: 50%;
@@ -498,10 +521,9 @@ transform: translateX(100%);
   width: 60%;
   color: black;
   font-family: poppins_mid;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
 }
 
-.radio_btn,
 .arrows,
 .view {
   position: relative;
@@ -511,25 +533,31 @@ transform: translateX(100%);
   position: relative;
   bottom: 50%;
   left: 50%;
+  right: 50%;
 }
 
 .right_arrow,
 .left_arrow {
-  font-family: poppins_bold;
-  font-size: 2.5rem;
   background-color: transparent;
   color: black;
   border: transparent;
   outline: none;
 }
+img:where(.right_arrow, .left_arrow) {
+  width: 40px;
+  height: 40px;
+}
+
 .right_arrow {
-  position: relative;
-  left: 36%;
+  position: absolute;
+  left: 40%;
 }
+
 .left_arrow {
-  position: relative;
-  right: 40%;
+  position: absolute;
+  right: 140%;
 }
+
 .view {
   left: 90%;
   bottom: 20px;
