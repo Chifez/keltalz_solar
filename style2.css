@@ -14,12 +14,17 @@
   font-family: poppins_mid;
   src: url(Poppins/Poppins-Medium.ttf);
 }
-
-@media (max-width: 1400px) {
+/* start of 1400px */
+/* @media (max-width: 1200px) {
+  .home_body,
+  .about,
+  .services {
+    border-radius: 5px;
+    margin: auto auto;
+  }
   .about_img img:last-child {
-    width: 600px;
+    width: 610px;
     height: 400px;
-    /* transform: translateY(70px); */
   }
   .about_img img:nth-child(1) {
     width: 300px;
@@ -31,43 +36,34 @@
   }
   .about_main p {
     font-weight: 300;
-    font-size: 28px;
-    line-height: 40px;
-    color: green;
-  }
-}
-@media (max-width: 1250px) {
-  .right h2 {
-    /* padding-top: 10px; */
-    font-size: 3.5rem;
-  }
-  .right h3 {
-    font-size: 2.5rem;
-  }
-  .left button {
-    margin-left: 40px;
-  }
-  .about_main p {
-    font-weight: 500;
     font-size: 20px;
     line-height: 40px;
     color: green;
   }
+}*/
+/* end of 1400px */
 
-  .testimonial {
-    margin-left: 65px;
+/* beginning of 1000px */
+@media (max-width: 1000px) {
+  .home {
+    height: 80vh;
   }
-  .story img {
-    width: 30%;
-    height: 45%;
+  .header_home {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 40px;
   }
-
-  .story p {
-    font-size: 1rem;
+  .main_logo {
+    height: 25px;
+    width: 35px;
+    margin: 10px;
   }
-}
-
-@media screen and (max-width: 1000px) {
+  .logos {
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+  }
   .main_logo {
     height: 20px;
     width: 25px;
@@ -81,7 +77,6 @@
     font-size: 12px;
     font-weight: 600;
   }
-
   .navbar {
     justify-content: space-between;
     width: 70%;
@@ -93,8 +88,9 @@
     color: #030022;
     text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
   }
-
-  .home_body {
+  .home_body,
+  .about,
+  .services {
     display: flex;
     flex-direction: column;
     width: 90vw;
@@ -126,7 +122,6 @@
     font-size: 24px;
     line-height: 36px;
   }
-
   .right_down p {
     font-weight: 700;
     font-size: 16.5px;
@@ -137,6 +132,9 @@
     border-top-right-radius: 0;
   }
   .left button {
+    position: absolute;
+    bottom: 2rem;
+    left: 5rem;
     width: fit-content;
     border: transparent;
     border-radius: 20px;
@@ -158,52 +156,62 @@
   }
 
   .about {
+    position: relative;
     box-shadow: none;
     display: grid;
     grid-template-columns: 1fr;
+    margin-top: 2rem;
   }
   .about_img img:last-child {
+    position: absolute;
+    bottom: 17rem;
     grid-row: 2/3;
     /* width: 450px; */
-    width: 90vw;
-    height: 32vh;
+    width: 89.5vw;
+    height: 38vh;
     border-bottom-left-radius: 0;
   }
   .about_img img:nth-child(1) {
+    position: absolute;
     border-top-left-radius: 0;
     width: 44.2vw;
-    height: 32vh;
+    height: 38vh;
   }
   .about_img img:nth-child(2) {
+    position: absolute;
     width: 44.2vw;
-    height: 32vh;
+    height: 38vh;
   }
   .about_main p {
     font-size: 15px;
-    line-height: 22px;
+    line-height: 25px;
   }
-  .our_services {
-    margin-bottom: -20px;
-  }
+
   .our_services h2 {
     font-size: 20px;
     line-height: 30px;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
+  .our_services {
+    width: 100vw;
+    height: fit-content;
+    margin-bottom: 10px;
+  }
   .services {
-    display: flex;
+    display: inline-flex;
     opacity: 1 !important;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     margin-top: 0;
     box-shadow: none;
     width: 300vw;
+    height: 80vh;
   }
   .solar,
   .electrical,
   .cctv {
-    animation: none;
+    animation: none !important;
     width: 100%;
     height: 100%;
   }
@@ -213,10 +221,12 @@
     box-sizing: border-box;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     border-radius: 30px;
-    /* width: 350px; */
-    width: 80vw;
+    width: 85vw;
+    margin: auto;
     height: 50vh;
-    /* height: 417px; */
+  }
+  .service_details {
+    margin-top: 50px;
   }
   .service_details p {
     font-size: 15px;
@@ -225,7 +235,7 @@
 
   .testimonial {
     box-shadow: none;
-    margin: 0;
+    margin: auto;
   }
   .story {
     /* width: 50vw;
@@ -242,22 +252,24 @@
     height: 70vh;
   }
   .slides {
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
     width: 70vw;
     overflow: hidden;
   }
   .story img {
-    position: relative;
-    width: 25%;
+    position: absolute;
+    top: 10rem;
+    width: 20%;
     height: 15%;
     object-fit: cover;
     border-radius: 50%;
-    margin-right: 5px;
+    /* margin: 5px; */
     border: 1px solid black;
   }
-
   .story p {
+    position: absolute;
+    top: 20rem;
     width: 70%;
     word-wrap: break-word;
     height: auto;
@@ -265,4 +277,226 @@
     font-family: poppins_mid;
     font-size: 15px;
   }
+  img:where(.right_arrow, .left_arrow) {
+    width: 30px;
+    height: 30px;
+  }
+  .contacts {
+    margin: auto;
+    /* margin-left: 45px;
+    margin-bottom: 20px;
+    margin-top: 10px; */
+    box-shadow: none;
+    overflow: hidden;
+  }
+  .email input {
+    width: 40vw;
+  }
+  .email button {
+    left: 30%;
+  }
+  .footer_info {
+    border-radius: 5px;
+    /* margin: auto; */
+    margin-left: 40px;
+  }
 }
+/* end of 1000*/
+@media (max-width: 768px) {
+  .home {
+    height: 90vh;
+  }
+  .about_img img:last-child,
+  .about_img img:nth-child(1),
+  .about_img img:nth-child(2) {
+    height: 36vh;
+  }
+}
+
+/* beginning of 500px */
+@media screen and (max-width: 550px) {
+  /* .header_home {
+    position: fixed;
+    top:;
+  } */
+  .home {
+    height: 100vh;
+  }
+  .right {
+    height: 45vh;
+  }
+  .left {
+    height: 45vh;
+  }
+  .hamburger {
+    position: absolute;
+    display: flex;
+    top: 5vh;
+    left: 90vw;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 10px;
+    z-index: 3;
+  }
+  .hamburger div {
+    position: relative;
+    width: 12px;
+    height: 2px;
+    background-color: black;
+    margin: 1px 0;
+    line-height: 50px;
+    z-index: 2;
+    transition: 0.3s ease-in-out;
+  }
+  .hamburger {
+  }
+
+  .navbar {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40vw;
+    height: 50vh;
+    background-color: skyblue;
+    margin: 2px;
+    z-index: 2;
+  }
+
+  .navbar a {
+    margin: 20px 0;
+  }
+  .contact {
+    background-color: transparent !important;
+  }
+  .contact:hover {
+    transition: 0.3s ease-in-out;
+    background: rgba(92, 187, 255, 1) !important;
+  }
+
+  .right {
+    margin-top: 50px;
+  }
+  .right h2 {
+    font-size: 2.5rem;
+    word-spacing: 3px;
+  }
+  .right h3 {
+    font-size: 1.5rem;
+  }
+  .right p {
+    font-size: 0.9rem;
+  }
+  .left {
+    position: relative;
+  }
+
+  .left button {
+    position: absolute;
+    bottom: -1rem;
+    /* left: -15rem; */
+    left: -1rem;
+  }
+  .about_img img:last-child {
+    bottom: 18rem;
+    height: 32.5vh;
+  }
+  .about_img img:nth-child(1) {
+    height: 32.5vh;
+  }
+  .about_img img:nth-child(2) {
+    height: 32.5vh;
+  }
+  .about_main p {
+    /* margin-top: 2px; */
+    font-size: 15px;
+    line-height: 15px;
+  }
+
+  .our_services h2 {
+    font-size: 20px;
+    line-height: 20px;
+  }
+  .our_services {
+    width: 100vw;
+    height: fit-content;
+    margin-bottom: 5px;
+  }
+  .services {
+    height: 90vh;
+  }
+  .service_details {
+    margin-top: 10px;
+  }
+  :is(.solar, .electrical, .cctv) img {
+    border: 2px solid #5cbbff;
+    /* box-sizing: border-box; */
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 30px;
+    /* width: 350px; */
+    margin: auto 10px;
+    width: 85vw;
+    height: 50vh;
+    /* height: 417px; */
+  }
+
+  .story img {
+    position: absolute;
+    top: 6rem;
+    width: 30%;
+    height: 15%;
+  }
+  .story p {
+    position: absolute;
+    top: 12rem;
+  }
+
+  .community p {
+    font-size: 0.7rem;
+  }
+  .community .email {
+    position: relative;
+    left: 3.5rem;
+    margin-top: 30px;
+  }
+  .email input {
+    position: absolute;
+    width: 60vw;
+    padding: 10px 70px 10px 20px;
+  }
+  .email button {
+    margin: 9px;
+    left: 10rem;
+    padding: 2px 4px;
+  }
+  .email button a {
+    font-size: 0.7rem;
+  }
+  .footer_info {
+    /* margin: auto auto; */
+    margin-left: 1.3rem;
+  }
+  .brand_name {
+    font-family: poppins_mid;
+    font-size: 0.9rem;
+  }
+  .info {
+    font-family: poppins_mid;
+    font-size: 0.7rem;
+    line-height: 25px;
+    text-transform: capitalize;
+  }
+  .info img {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    filter: invert(100%);
+  }
+  .nav li,
+  .nav a {
+    width: 20vw;
+    font-size: 0.7rem;
+  }
+}
+
+/* end of 500px*/

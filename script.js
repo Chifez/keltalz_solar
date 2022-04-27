@@ -9,6 +9,36 @@ const contentBody = document.querySelectorAll(".content_body");
 const textBody = document.querySelector(".text_body");
 const textDetail = document.querySelectorAll(".about_main p");
 const serviceDtEl = document.querySelectorAll("#our_services .contents_body");
+const hamburger = document.querySelector(".hamburger");
+const navbar = document.querySelector(".navbar");
+const hamSlide = document.querySelectorAll(".hamburger div");
+let toggle = false;
+
+hamburger.addEventListener("click", (e) => {
+  e.preventDefault();
+  toggleSlides();
+});
+const toggleSlides = () => {
+  for (let i = 0; i < hamSlide.length; i++) {
+    if (!toggle) {
+      hamSlide[0].style.transform = `rotate(45deg) translateY(3px)`;
+      hamSlide[1].style.display = "none";
+      hamSlide[2].style.transform = `rotate(-45deg) translateY(-3px)`;
+
+      navbar.style.display = "flex";
+      toggle = true;
+    } else {
+      navbar.style.display = "none";
+      hamSlide.forEach((slide, i) => {
+        slide.style.transform = `rotate(0deg)`;
+        slide.style.display = "flex";
+      });
+
+      toggle = false;
+    }
+  }
+};
+
 let index = 0;
 
 const offset = {
@@ -179,7 +209,7 @@ const submit = (e) => {
   e.preventDefault();
   let text = emailReg.value;
   if (text === "") {
-    return;
+    return alert("invalid input");
   } else {
     window.open("mailto:keltalzglobal@gmail.com?subject=text&body=text");
   }
