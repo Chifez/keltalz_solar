@@ -207,6 +207,8 @@
     box-shadow: none;
     width: 300vw;
     height: 80vh;
+    column-gap: 0;
+    padding: 50px 0 50px 50px;
   }
   .solar,
   .electrical,
@@ -221,8 +223,8 @@
     box-sizing: border-box;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     border-radius: 30px;
-    width: 85vw;
-    margin: auto;
+    width: 90vw;
+    /* margin: auto auto; */
     height: 50vh;
   }
   .service_details {
@@ -302,7 +304,7 @@
   }
 }
 /* end of 1000*/
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .home {
     height: 90vh;
   }
@@ -311,16 +313,46 @@
   .about_img img:nth-child(2) {
     height: 36vh;
   }
+
+  .services {
+    padding: 50px 0 50px 20px;
+  }
+
 }
 
 /* beginning of 500px */
 @media screen and (max-width: 550px) {
-  /* .header_home {
-    position: fixed;
-    top:;
-  } */
+  @keyframes navShow {
+    0% {
+      transform: translateX(100vw);
+      opacity: 0.5;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  @keyframes navLeave {
+    0% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    50% {
+      transform: translateX(50vw);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(100vw);
+      display: none;
+      opacity: 0;
+    }
+  }
+
   .home {
     height: 100vh;
+  }
+  .header_home .logos {
+    z-index: 2;
   }
   .right {
     height: 45vh;
@@ -356,12 +388,25 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 40vw;
+    position: absolute;
+  }
+  .navbar.active {
+    width: 100vw;
     height: 50vh;
     background-color: skyblue;
     margin: 2px;
-    z-index: 2;
+    z-index: 1;
+    animation: navShow 0.5s ease-in-out;
   }
+  /* .navbar.inactive {
+    display: none;
+    width: 100vw;
+    height: 50vh;
+    background-color: skyblue;
+    margin: 2px;
+    z-index: 1;
+    animation: navLeave 0.5s ease-in-out;
+  } */
 
   .navbar a {
     margin: 20px 0;

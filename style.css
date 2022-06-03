@@ -301,7 +301,7 @@ body {
 
 .about_us h2 {
   text-align: center;
-  text-decoration: ;
+  text-decoration: none;
   text-transform: uppercase;
   font-size: 2rem;
   font-family: poppins_mid;
@@ -351,7 +351,7 @@ body {
   font-weight: 300;
   font-size: 20px;
   line-height: 40px;
-  color: green;
+  /* color: green; */
 }
 
 /* **********END OF THE ABOUT US STYLING********* */
